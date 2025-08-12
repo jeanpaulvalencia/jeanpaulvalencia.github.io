@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sopa de Letras - Glosario</title>
+<style>
+  :root {
+    --fondo: #0d0f0d;
+    --gris-oscuro: #1b1f1b;
+    --texto: #f0f0f0;
+    --acento: #00ff66;
+    --acento-oscuro: #00cc52;
+  }
+  body {
+    background: radial-gradient(circle at top left, #0f1f13, var(--fondo) 70%);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+  }
+  h1 {
+    color: var(--acento);
+    text-shadow: 0 0 10px rgba(0,255,102,0.6);
+    margin-bottom: 20px;
+  }
+  .container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(15, 40px);
+    grid-template-rows: repeat(15, 40px);
+    gap: 3px;
+    user-select: none;
+  }
+  .cell {
+    width: 40px;
+    height: 40px;
+    background: var(--gris-oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+  }
+  .cell:hover {
+    background: rgba(0,255,102,0.2);
+  }
+  .selected {
+    background: rgba(0,255,102,0.4);
+  }
+  .found {
+    background: var(--acento);
+    color: var(--fondo);
+    cursor: default;
+  }
+  .word-list {
+    min-width: 200px;
+  }
+  .word-list h2 {
+    margin-bottom: 10px;
+    color: var(--acento);
+  }
+  .word-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  .word-list li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+  .word-found {
+    text-decoration: line-through;
+    color: var(--acento);
+  }
+   .volver {
+    margin-top: 40px;
+    display: inline-block;
+    text-decoration: none;
+    background: var(--acento);
+    color: var(--fondo);
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px var(--acento);
+  }
+  .volver:hover {
+    background: var(--acento-oscuro);
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+<a href="categorias.html" class="volver">← Volver a las categorías</a>
+<h1>🧩 Sopa de Letras - Glosario</h1>
+<div class="container">
+  <div class="grid" id="grid"></div>
+  <div class="word-list">
+    <h2>Palabras</h2>
+    <ul id="wordList"></ul>
+  </div>
+</div>
+
+<script>
+const words = [
+  "GEN","TRANSCRIPCION","FALACIA","ADHOMINEM","FORMULA","FUNCION","HIPOTENUSA",
+  "TANGENTE","PENDIENTE","ORDENADA","EVENTO","PROBABILIDAD","WILL","PREDICTION",
+  "HUMANISMO","DRAMA","TRINIDAD","ESPIRITUSANTO","EMPATIA","JUSTICIA","VELOCIDAD",
+  "FUERZA","SURREALISMO","ABSTRACTO","RESISTENCIA","FLEXIBILIDAD"
+];
+
+const gridSize = 15;
+let grid = Array.from({ length: gridSize }, () => Array(gridSize).fill(''));
+let foundWords = new Set();
+let mouseDown = false;
+let selectedCells = [];
+
+const directions = [
+  [0,1],[1,0],[0,-1],[-1,0], // horizontal/vertical
+  [1,1],[-1,-1],[1,-1],[-1,1] // diagonales
+];
+
+// Colocar palabras
+function placeWords() {
+  words.forEach(word => {
+    let placed = false;
+    let attempts = 0;
+    while(!placed && attempts < 100) {
+      attempts++;
+      let dir = directions[Math.floor(Math.random()*directions.length)];
+      let row = Math.floor(Math.random()*gridSize);
+      let col = Math.floor(Math.random()*gridSize);
+      if (canPlaceWord(word, row, col, dir)) {
+        for (let i = 0; i < word.length; i++) {
+          grid[row + dir[0]*i][col + dir[1]*i] = word[i];
+        }
+        placed = true;
+      }
+    }
+  });
+}
+
+// Verificar si se puede colocar la palabra
+function canPlaceWord(word, row, col, dir) {
+  for (let i = 0; i < word.length; i++) {
+    let r = row + dir[0]*i;
+    let c = col + dir[1]*i;
+    if (r < 0 || r >= gridSize || c < 0 || c >= gridSize) return false;
+    if (grid[r][c] && grid[r][c] !== word[i]) return false;
+  }
+  return true;
+}
+
+// Rellenar letras aleatorias
+function fillGrid() {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (let r = 0; r < gridSize; r++) {
+    for (let c = 0; c < gridSize; c++) {
+      if (!grid[r][c]) grid[r][c] = letters[Math.floor(Math.random()*letters.length)];
+    }
+  }
+}
+
+// Renderizar tablero
+function renderGrid() {
+  const gridEl = document.getElementById("grid");
+  gridEl.innerHTML = "";
+  grid.forEach((row, r) => {
+    row.forEach((letter, c) => {
+      let cell = document.createElement("div");
+      cell.className = "cell";
+      cell.textContent = letter;
+      cell.dataset.row = r;
+      cell.dataset.col = c;
+      gridEl.appendChild(cell);
+    });
+  });
+}
+
+// Mostrar lista de palabras
+function renderWordList() {
+  const listEl = document.getElementById("wordList");
+  listEl.innerHTML = "";
+  words.forEach(w => {
+    let li = document.createElement("li");
+    li.textContent = w;
+    if (foundWords.has(w)) li.classList.add("word-found");
+    listEl.appendChild(li);
+  });
+}
+
+// Eventos de selección
+document.addEventListener("mousedown", e => {
+  if (e.target.classList.contains("cell") && !e.target.classList.contains("found")) {
+    mouseDown = true;
+    selectedCells = [e.target];
+    e.target.classList.add("selected");
+  }
+});
+document.addEventListener("mouseover", e => {
+  if (mouseDown && e.target.classList.contains("cell") && !selectedCells.includes(e.target)) {
+    selectedCells.push(e.target);
+    e.target.classList.add("selected");
+  }
+});
+document.addEventListener("mouseup", () => {
+  if (selectedCells.length > 0) checkSelection();
+  mouseDown = false;
+  document.querySelectorAll(".selected").forEach(cell => cell.classList.remove("selected"));
+  selectedCells = [];
+});
+
+// Comprobar si la selección es una palabra
+function checkSelection() {
+  let letters = selectedCells.map(c => c.textContent).join("");
+  let reverse = letters.split("").reverse().join("");
+  let match = words.find(w => w === letters || w === reverse);
+  if (match) {
+    selectedCells.forEach(c => c.classList.add("found"));
+    foundWords.add(match);
+    renderWordList();
+  }
+}
+
+// Iniciar juego
+placeWords();
+fillGrid();
+renderGrid();
+renderWordList();
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glosario</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --fondo: #0d0f0d;
+      --gris-oscuro: #1b1f1b;
+      --texto: #f0f0f0;
+      --acento: #00ff66;
+      --acento-oscuro: #00cc52;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top left, #0f1f13, var(--fondo) 70%);
+      color: var(--texto);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: var(--acento);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,255,102,0.6);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .categoria-container {
+      max-width: 1000px;
+      background: rgba(27, 31, 27, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,255,102,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .contenido {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    .contenido ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contenido li {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    .contenido strong {
+      color: var(--acento);
+    }
+
+    .volver {
+      margin-top: 40px;
+      display: inline-block;
+      text-decoration: none;
+      background: var(--acento);
+      color: var(--fondo);
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px var(--acento);
+    }
+
+    .volver:hover {
+      background: var(--acento-oscuro);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      padding: 15px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .categoria-container { padding: 25px; }
+      .contenido { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1><i class="fa-solid fa-book"></i> Glosario</h1>
+
+  <div class="categoria-container">
+    <section class="contenido">
+      <ul>
+        <li><strong>Gen:</strong> Segmento de ADN que codifica para una proteína.</li>
+        <li><strong>Transcripción:</strong> Proceso en el que se forma ARN a partir del ADN.</li>
+        <li><strong>Falacia:</strong> Argumento inválido o engañoso.</li>
+        <li><strong>Ad hominem:</strong> Falacia que ataca a la persona en vez del argumento.</li>
+        <li><strong>Fórmula:</strong> Instrucción que realiza un cálculo en Excel.</li>
+        <li><strong>Función:</strong> Fórmulas predefinidas como SUMA o PROMEDIO.</li>
+        <li><strong>Hipotenusa:</strong> Lado más largo en un triángulo rectángulo.</li>
+        <li><strong>Tangente:</strong> Razón entre cateto opuesto y cateto adyacente.</li>
+        <li><strong>Pendiente:</strong> Valor que indica la inclinación de la recta.</li>
+        <li><strong>Ordenada al origen:</strong> Valor de y cuando x = 0.</li>
+        <li><strong>Evento:</strong> Resultado posible de un experimento.</li>
+        <li><strong>Probabilidad condicional:</strong> Probabilidad de un evento bajo una condición.</li>
+        <li><strong>Will:</strong> Verbo auxiliar para formar el futuro.</li>
+        <li><strong>Prediction:</strong> A statement about what will happen.</li>
+        <li><strong>Humanismo:</strong> Corriente que exalta al ser humano.</li>
+        <li><strong>Drama:</strong> Obra teatral con conflicto y diálogo.</li>
+        <li><strong>Trinidad:</strong> Doctrina cristiana de un solo Dios en tres personas.</li>
+        <li><strong>Espíritu Santo:</strong> Tercera persona de la Trinidad.</li>
+        <li><strong>Empatía:</strong> Capacidad de comprender el sentir del otro.</li>
+        <li><strong>Justicia:</strong> Valor que busca el bien común y equidad.</li>
+        <li><strong>Velocidad:</strong> Rapidez con dirección (m/s).</li>
+        <li><strong>Fuerza:</strong> Interacción que cambia el estado de movimiento.</li>
+        <li><strong>Surrealismo:</strong> Movimiento que explora el subconsciente.</li>
+        <li><strong>Abstracto:</strong> Arte sin forma realista definida.</li>
+        <li><strong>Resistencia:</strong> Capacidad de mantener un esfuerzo físico prolongado.</li>
+        <li><strong>Flexibilidad:</strong> Capacidad de mover las articulaciones sin dolor.</li>
+      </ul>
+    </section>
+
+    <a href="categorias.html" class="volver">← Volver a las categorías</a>
+  </div>
+
+  <footer>
+    © 2025 Glosario Educativo — Todos los derechos reservados
+  </footer>
+
+</body>
+</html>

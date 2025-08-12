@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Geometría — Ecuación de la recta</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --fondo: #0d0f0d;
+      --gris-oscuro: #1b1f1b;
+      --texto: #f0f0f0;
+      --acento: #00ff66;
+      --acento-oscuro: #00cc52;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top left, #0f1f13, var(--fondo) 70%);
+      color: var(--texto);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: var(--acento);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,255,102,0.6);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .categoria-container {
+      max-width: 1000px;
+      background: rgba(27, 31, 27, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,255,102,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    h2 {
+      color: var(--acento);
+      border-left: 5px solid var(--acento);
+      padding-left: 10px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    p, ul, li {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    code {
+      background: rgba(0,255,102,0.1);
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: var(--acento);
+    }
+
+    ul { margin-left: 20px; }
+
+    .volver {
+      margin-top: 40px;
+      display: inline-block;
+      text-decoration: none;
+      background: var(--acento);
+      color: var(--fondo);
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px var(--acento);
+    }
+    .volver:hover { background: var(--acento-oscuro); transform: scale(1.05); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      padding: 15px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .categoria-container { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1><i class="fa-solid fa-ruler-combined"></i> Geometría — Ecuación de la recta</h1>
+
+  <div class="categoria-container">
+    <section class="contenido">
+      <h2>Resumen del tema</h2>
+      <p>
+        La ecuación <code>y = mx + b</code> describe una línea recta en el plano cartesiano, donde:
+      </p>
+      <ul>
+        <li><strong>m</strong>: pendiente, que indica la inclinación de la recta.</li>
+        <li><strong>b</strong>: punto donde la recta corta el eje Y (ordenada al origen).</li>
+      </ul>
+      <p>
+        Si <strong>m</strong> es positiva, la recta sube de izquierda a derecha; si es negativa, baja.
+        Esta ecuación es clave en geometría analítica para modelar relaciones lineales.
+      </p>
+    </section>
+
+    <section class="ejemplo">
+      <h2>Ejemplo</h2>
+      <p>
+        Si tenemos la ecuación <code>y = 2x + 1</code>:
+        <ul>
+          <li>Pendiente <strong>m = 2</strong>, la recta sube 2 unidades por cada 1 que avanza en X.</li>
+          <li>Intercepto <strong>b = 1</strong>, corta el eje Y en el punto (0,1).</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="pregunta">
+      <h2>Pregunta tipo ICFES</h2>
+      <p><strong>¿Cuál es la pendiente de la recta <code>y = 3x - 2</code>?</strong></p>
+      <ul>
+        <li>A) -2</li>
+        <li>B) 3 ✅</li>
+        <li>C) x</li>
+        <li>D) 5</li>
+      </ul>
+    </section>
+
+    <a href="categorias.html" class="volver">← Volver a las categorías</a>
+  </div>
+
+  <footer>
+    © 2025 Geometría y Matemáticas — Todos los derechos reservados
+  </footer>
+
+</body>
+</html>

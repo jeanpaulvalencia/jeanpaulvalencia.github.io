@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Física — Aplicación de las Matemáticas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --fondo: #0d0f0d;
+      --gris-oscuro: #1b1f1b;
+      --texto: #f0f0f0;
+      --acento: #00ff66;
+      --acento-oscuro: #00cc52;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top left, #0f1f13, var(--fondo) 70%);
+      color: var(--texto);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: var(--acento);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,255,102,0.6);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .categoria-container {
+      max-width: 1000px;
+      background: rgba(27, 31, 27, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,255,102,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    h2 {
+      color: var(--acento);
+      border-left: 5px solid var(--acento);
+      padding-left: 10px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    p, ul, li {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    ul { margin-left: 20px; }
+
+    .volver {
+      margin-top: 40px;
+      display: inline-block;
+      text-decoration: none;
+      background: var(--acento);
+      color: var(--fondo);
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px var(--acento);
+    }
+    .volver:hover { background: var(--acento-oscuro); transform: scale(1.05); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      padding: 15px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .categoria-container { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1><i class="fa-solid fa-atom"></i> Aplicación de las Matemáticas en la Física</h1>
+
+  <div class="categoria-container">
+    <section class="contenido">
+      <h2>Resumen del tema</h2>
+      <p>
+        La <strong>física</strong> se apoya en las matemáticas para describir, predecir y analizar fenómenos naturales.
+        Gracias a fórmulas y modelos, se pueden estudiar conceptos como el movimiento, la energía, la fuerza y las ondas.
+      </p>
+      <p>
+        Un ejemplo simple es el cálculo de la velocidad, usando la fórmula:
+        <strong>v = d / t</strong>, donde <em>d</em> es la distancia recorrida y <em>t</em> el tiempo empleado.
+      </p>
+    </section>
+
+    <section class="valores">
+      <h2>Importancia</h2>
+      <ul>
+        <li>Permite cuantificar fenómenos físicos con precisión.</li>
+        <li>Facilita la creación de modelos para prever resultados.</li>
+        <li>Ayuda a conectar la teoría con experimentos reales.</li>
+      </ul>
+    </section>
+
+    <section class="pregunta">
+      <h2>Pregunta tipo ICFES</h2>
+      <p><strong>Si un objeto recorre 100 m en 20 s, ¿cuál es su velocidad?</strong></p>
+      <ul>
+        <li>A) 2 m/s</li>
+        <li>B) 5 m/s ✅</li>
+        <li>C) 20 m/s</li>
+        <li>D) 120 m/s</li>
+      </ul>
+    </section>
+
+    <a href="categorias.html" class="volver">← Volver a las categorías</a>
+  </div>
+
+  <footer>
+    © 2025 Física y Matemáticas — Todos los derechos reservados
+  </footer>
+
+</body>
+</html>

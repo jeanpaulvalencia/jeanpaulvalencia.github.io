@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Revista Digital — Llamas de Furia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --fondo: #0d0f0d;
+      --gris-oscuro: #1b1f1b;
+      --texto: #f0f0f0;
+      --acento: #00ff99;
+      --acento-oscuro: #00cc77;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #0f2219, var(--fondo) 70%);
+      color: var(--texto);
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      color: var(--acento);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,255,153,0.6);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: auto;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: rgba(27, 31, 27, 0.95);
+      box-shadow: 0 0 30px rgba(0,255,153,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .intro, .gridlist-wrapper {
+      flex: 1 1 50%;
+      min-width: 300px;
+      padding: 30px;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .gridlist-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gridlist-title {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--acento);
+      border-bottom: 2px solid var(--acento);
+      padding-bottom: 5px;
+    }
+
+    .gridlist {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-height: 240px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 8px;
+    }
+
+    /* Scroll vertical */
+    .gridlist::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .gridlist::-webkit-scrollbar-thumb {
+      background-color: var(--acento);
+      border-radius: 10px;
+    }
+
+    .gridlist::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    .categoria {
+      background: #141814;
+      padding: 15px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--texto);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .categoria i {
+      color: var(--acento);
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .categoria:hover {
+      background: var(--acento);
+      color: var(--fondo);
+      transform: translateX(5px);
+      box-shadow: 0 0 15px var(--acento);
+    }
+
+    .categoria:hover i {
+      transform: scale(1.2);
+      color: var(--fondo);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Llamas de Furia</h1>
+
+  <div class="container">
+    <div class="intro">
+      <p>
+        Bienvenido a <strong>Llamas de Furia</strong>. En esta revista, elaborada por nuestro grupo, presentamos una recopilación de los temas más relevantes estudiados durante este periodo en el aula. Nuestro objetivo es compartir, de manera clara y dinámica, los conocimientos adquiridos, así como reflexiones y aportes propios que enriquezcan cada contenido.
+      </p>
+      <p><strong>Autores:</strong> Jean Paul Valencia, Jorman Cortes, Sebastian Realpe</p>
+    </div>
+
+    <div class="gridlist-wrapper">
+      <div class="gridlist-title">Categorías</div>
+      <div class="gridlist">
+        <a href="Matematicas.html" class="categoria"><i class="fa-solid fa-square-root-variable"></i> Matemáticas</a>
+        <a href="CienciasN.html" class="categoria"><i class="fa-solid fa-flask"></i> Ciencias Naturales</a>
+        <a href="Estadistica.html" class="categoria"><i class="fa-solid fa-chart-column"></i> Estadística</a>
+        <a href="Etica.html" class="categoria"><i class="fa-solid fa-scale-balanced"></i> Ética</a>
+        <a href="Filosofia.html" class="categoria"><i class="fa-solid fa-brain"></i> Filosofía</a>
+        <a href="Fisica.html" class="categoria"><i class="fa-solid fa-atom"></i> Física</a>
+        <a href="Geometria.html" class="categoria"><i class="fa-solid fa-drafting-compass"></i> Geometría</a>
+        <a href="Ingles.html" class="categoria"><i class="fa-solid fa-language"></i> Inglés</a>
+        <a href="Lenguaje.html" class="categoria"><i class="fa-solid fa-book-open"></i> Lenguaje</a>
+        <a href="Religion.html" class="categoria"><i class="fa-solid fa-church"></i> Religión</a>
+        <a href="Tecnologia.html" class="categoria"><i class="fa-solid fa-microchip"></i> Tecnología</a>
+        <a href="Artistica.html" class="categoria"><i class="fa-solid fa-palette"></i> Artística</a>
+        <a href="educacionF.html" class="categoria"><i class="fa-solid fa-dumbbell"></i> Educación Física</a>
+        <a href="Glosario.html" class="categoria"><i class="fa-solid fa-book"></i> Glosario</a>
+        <a href="Test.html" class="categoria"><i class="fa-solid fa-gamepad"></i> Juego</a>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

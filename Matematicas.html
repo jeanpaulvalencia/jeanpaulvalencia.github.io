@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matemáticas — Razones trigonométricas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --fondo: #0d0f0d;
+      --gris-oscuro: #1b1f1b;
+      --texto: #f0f0f0;
+      --acento: #00ff66;
+      --acento-oscuro: #00cc52;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top left, #0f1f13, var(--fondo) 70%);
+      color: var(--texto);
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: var(--acento);
+      text-align: center;
+      text-shadow: 0 0 10px rgba(0,255,102,0.6);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .categoria-container {
+      max-width: 1000px;
+      background: rgba(27, 31, 27, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,255,102,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    h2 {
+      color: var(--acento);
+      border-left: 5px solid var(--acento);
+      padding-left: 10px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    p, ul, li, code {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    ul { margin-left: 20px; }
+
+    code {
+      background: rgba(0,255,102,0.06);
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: var(--acento);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+    }
+
+    .volver {
+      margin-top: 40px;
+      display: inline-block;
+      text-decoration: none;
+      background: var(--acento);
+      color: var(--fondo);
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px var(--acento);
+    }
+    .volver:hover { background: var(--acento-oscuro); transform: scale(1.05); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      padding: 15px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .categoria-container { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1><i class="fa-solid fa-square-root-variable"></i> Razones trigonométricas</h1>
+
+  <div class="categoria-container">
+    <section class="contenido">
+      <h2>Resumen del tema</h2>
+      <p>
+        Las razones trigonométricas relacionan los lados de un triángulo rectángulo y permiten calcular ángulos y longitudes.
+        Las principales son: <strong>seno (sin)</strong>, <strong>coseno (cos)</strong> y <strong>tangente (tan)</strong>.
+      </p>
+      <ul>
+        <li><strong>sin(θ)</strong> = cateto opuesto / hipotenusa</li>
+        <li><strong>cos(θ)</strong> = cateto adyacente / hipotenusa</li>
+        <li><strong>tan(θ)</strong> = cateto opuesto / cateto adyacente</li>
+      </ul>
+    </section>
+
+    <section class="ejemplo">
+      <h2>Ejemplo práctico</h2>
+      <p>
+        Si en un triángulo rectángulo el cateto opuesto mide <code>4</code> y la hipotenusa <code>5</code>, entonces:
+        <br><strong>sin(θ) = 4 / 5</strong> (también se puede expresar como <code>0.8</code>).
+      </p>
+    </section>
+
+    <section class="pregunta">
+      <h2>Pregunta tipo ICFES</h2>
+      <p><strong>En un triángulo rectángulo, si el cateto opuesto mide 4 y la hipotenusa 5, ¿cuál es el seno del ángulo?</strong></p>
+      <ul>
+        <li>A. 4/5</li>
+        <li>B. 5/4</li>
+        <li>C. 4</li>
+        <li>D. 0.8</li>
+      </ul>
+      <p><strong>✅ Respuesta correcta:</strong> A. 4/5 (equivalente a 0.8)</p>
+    </section>
+
+    <a href="categorias.html" class="volver">← Volver a las categorías</a>
+  </div>
+
+  <footer>
+    © 2025 Matemáticas — Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
